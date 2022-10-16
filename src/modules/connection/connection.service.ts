@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { createPool } from "mysql"
+import { createPool } from "mysql";
+import 'dotenv/config'
 
 @Injectable()
 export class ConnectionService {

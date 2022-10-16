@@ -1,3 +1,4 @@
+import 'dotenv/config'
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { AppController } from './app.controller';
@@ -9,8 +10,7 @@ import { PatientModule } from './modules/patient/patient.module';
   imports: [
     ConnectionModule,
     ConfigModule.forRoot({
-      envFilePath: ['.env'],
-      cache: true,
+      envFilePath: `./env/${process.env.NODE_ENV}.env`,
       isGlobal: true,
     }),
     PatientModule,
@@ -18,4 +18,6 @@ import { PatientModule } from './modules/patient/patient.module';
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule {
+  
+} 
